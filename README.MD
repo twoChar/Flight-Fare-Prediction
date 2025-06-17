@@ -1,103 +1,106 @@
-# ✈️ Flight Fare Prediction — A Journey Through Data & Grit
+# Flight Fare Prediction
 
-Hey there! I'm Tushar — and this is a story of how I took a raw, messy dataset about flights and turned it into a machine learning project that can predict flight fares with surprising accuracy. This isn't just about hitting high scores on metrics — it's about learning the real, dirty, hands-on work behind an actual ML pipeline.
-
----
-
-## 🔍 The Problem
-
-Flight prices are unpredictable, right? One day it’s ₹3,000, next day it’s ₹9,000 — same destination, same airline. I thought: _"There has to be a pattern."_  
-So, I built a model to **predict flight ticket prices based on details like airlines, journey time, route, stops, and duration**.
-
-No magic, just data.
+Built this from scratch because I was tired of seeing random flight prices and thought, why not make a machine try to understand this chaos?
 
 ---
 
-## 💡 My Approach (The Grit & Grind)
+## What’s this about?
 
-I didn’t just throw data at a model — I cleaned it, broke it apart, questioned every column, and slowly built something worth showing.
+Flight ticket prices are all over the place. Ever wondered why the same flight costs ₹3,000 today and ₹9,000 tomorrow? I did. So I took a raw dataset from Kaggle and decided to build a machine learning model that could predict flight fares based on features like airline, journey date, duration, number of stops, and more.
 
-### 🧹 Step 1: Data Cleaning
-- The dataset came with columns like "Duration" in weird formats like `2h 50m`. I wrote logic to convert that into total minutes.
-- Converted date/time into day, month, hour, minute — so models could *actually* learn patterns.
-- Dealt with missing values, dropped columns that added noise (bye-bye, "Additional Info").
-
-### 📊 Step 2: EDA (Understanding the Beast)
-- Checked which airlines were charging more
-- Looked at the impact of number of stops on prices
-- Plotted distributions, boxplots, violin plots — found gold in the patterns
-
-### 🧱 Step 3: Feature Engineering
-- Extracted duration in total minutes
-- One-hot encoded airlines, sources, and destinations
-- Label-encoded stops (ordinal by nature)
-
-This was the part where I realized: **what you feed into the model is everything**. Garbage in = garbage out.
-
-### 🤖 Step 4: Model Building
-I tested:
-- **Linear Regression** — baseline
-- **Decision Tree** — better
-- **Random Forest Regressor** — 🔥 *chef’s kiss*
-
-### 🧪 Step 5: Model Evaluation
-I didn’t stop at "It runs." I looked at:
-- R² Score
-- Mean Absolute Error
-- RMSE
+This project wasn’t about getting a perfect model — it was about learning everything in the process: from cleaning messy data to making sense of it and finally using it to make predictions that actually kinda work.
 
 ---
 
-## 📈 Final Results (Hard-Earned, Not Copy-Pasted)
+## How I built it (a.k.a. the grind)
+
+### Step 1: Understanding the data
+
+Started with a CSV file full of weird formats and half-cleaned text. Things like:
+
+- "2h 45m" in the duration column
+- "1 stop" as text instead of a number
+- Dates mixed in with times, not even in the right format
+
+So the first few hours? Just cleaning that mess.
+
+### Step 2: Cleaning + Feature Engineering
+
+- Split `Date_of_Journey` into day and month
+- Converted `Dep_Time` and `Arrival_Time` into hour and minute
+- Transformed `Duration` into total minutes
+- Used label encoding and one-hot encoding depending on the column type
+- Dropped garbage columns like "Additional_Info" that weren’t doing anything
+
+This was the part where I realized data cleaning isn’t sexy, but it’s 70% of the work.
+
+### Step 3: EDA (Exploratory Data Analysis)
+
+- Compared prices across different airlines
+- Checked how number of stops impacts price (spoiler: more stops = cheaper)
+- Visualized relationships using boxplots, violin plots, and bar graphs
+
+Honestly, this step helped me figure out which features actually mattered.
+
+### Step 4: Model Building
+
+Tried a bunch of regression models:
+- Linear Regression (meh)
+- Decision Tree (better)
+- Random Forest Regressor (worked best)
+
+### Step 5: Evaluation
 
 | Model                 | R² Score | MAE      | RMSE     |
 |----------------------|----------|----------|----------|
 | Linear Regression     | 0.63     | ₹2,100   | ₹3,200   |
 | Decision Tree         | 0.75     | ₹1,650   | ₹2,700   |
-| **Random Forest** ✅  | **0.82** | **₹1,300** | **₹2,100** |
+| Random Forest         | 0.82     | ₹1,300   | ₹2,100   |
 
-🎯 **Best Model**: Random Forest Regressor  
-🔥 **R² Score**: 0.82 — solid predictive power  
-💸 **Mean Absolute Error**: ₹1,300 — not bad for fare prediction
+The Random Forest model gave me the best results — solid R² score, low error, and consistent predictions.
 
 ---
 
-## 🛠️ Tools I Used
+## Tools Used
 
 - Python
-- Pandas & NumPy for data wrangling
-- Matplotlib & Seaborn for EDA
-- Scikit-learn for ML models
+- Pandas, NumPy
+- Seaborn, Matplotlib
+- Scikit-learn
+- Jupyter Notebook
 
 ---
 
-## 🚀 What’s Next?
+## What’s next?
 
-This project was just the beginning. I’m planning to:
-- Scrape live flight data and make this model smarter
-- Wrap it up in a **Streamlit web app** to show predictions live
-- Try out **XGBoost, CatBoost**, and hyperparameter tuning
-- Maybe deploy it with Flask or FastAPI just for fun
+- Thinking of deploying this using Streamlit so it’s interactive
+- Might try XGBoost or CatBoost just to compare
+- Would love to connect it to real-time flight data one day using APIs
 
 ---
 
-## 🤯 Things I Learned
+## Stuff I learned
 
-- Feature engineering is *the real MVP* of ML
-- Dates and durations are annoying — but you can tame them
-- Models are dumb until you give them good data
-- Debugging a Jupyter notebook at 2 AM builds character 😅
-
----
-
-## 🙋‍♂️ About Me
-
-**Tushar Suredia**  
-_Data Engineer | Learner | Builder of things that (hopefully) work_  
-📍 India  
-[GitHub](#) | [LinkedIn](#) | [Portfolio](#)
+- Feature engineering is everything. The better your features, the better your model.
+- Datetime columns are always tricky. Always.
+- Never underestimate how long data cleaning takes.
+- Visualizing stuff helps. A lot.
+- If you don't understand the data, your model definitely won’t.
 
 ---
 
-> _This wasn’t just a project, it was a hands-on lesson in thinking like a machine and sweating like a human._  
-> — Thanks for scrolling. Feedback, stars, and job offers welcome. 😄
+## About me
+
+Hi, I’m Tushar Suredia — a Data Engineer who loves building things that actually do something.  
+This was one of my first serious attempts at applying ML to a real-world-style dataset, and honestly, I had a lot of fun figuring it out.
+
+- GitHub: [your link]
+- LinkedIn: [your link]
+- Portfolio: [your link]
+
+---
+
+This project wasn’t perfect — but it was real.  
+And that’s what matters.
+
+If you read this far — thanks. And if you’re working on your own project, keep going. It’s worth it.
