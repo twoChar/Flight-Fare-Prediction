@@ -12,7 +12,7 @@ This project wasn’t about getting a perfect model — it was about learning ev
 
 ---
 
-## How I built it (a.k.a. the grind)
+## How I built it 
 
 ### Step 1: Understanding the data
 
@@ -91,12 +91,12 @@ The Random Forest model gave me the best results — solid R² score, low error,
 
 ## About me
 
-Hi, I’m Tushar Suredia — a Data Engineer who loves building things that actually do something.  
+Hi, I’m Tushar Suredia — a Data Analyst who loves building things that actually do something.  
 This was one of my first serious attempts at applying ML to a real-world-style dataset, and honestly, I had a lot of fun figuring it out.
 
-- GitHub: [your link]
-- LinkedIn: [your link]
-- Portfolio: [your link]
+- GitHub: [https://github.com/twoChar]
+- LinkedIn: [https://www.linkedin.com/in/twochar/]
+- Gmail: [connectwith.twochar@gmail.com]
 
 ---
 
